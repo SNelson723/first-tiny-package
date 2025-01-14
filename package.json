@@ -16,10 +16,10 @@
   "description": "small typescript library",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/SNelson723/first-tiny-package"
   },
-  "bugs": "",
-  "homepage": "",
+  "bugs": "https://github.com/SNelson723/first-tiny-package",
+  "homepage": "https://github.com/SNelson723/first-tiny-package",
   "dependencies": {
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
