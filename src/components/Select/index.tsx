@@ -21,12 +21,15 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
   const listRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = (e: MouseEvent) => {
-    if (!triggerRef.current) return;
-    if (!listRef.current) return;
+    const triggerRef = document.querySelector('[query-id="trigger-ref"]');
+    if (!triggerRef) return;
 
-    if (!triggerRef.current.contains(e.target as Node)) {
-      if (!listRef.current.contains(e.target as Node)) {
-        listRef.current.setAttribute("data-display", "closed");
+    const listRef = document.querySelector('[query-id="list"]');
+    if (!listRef) return;
+
+    if (!triggerRef.contains(e.target as Node)) {
+      if (!listRef.contains(e.target as Node)) {
+        listRef.setAttribute("data-display", "closed");
       }
     }
   };
@@ -49,12 +52,13 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
 
   // when clicking the trigger
   const handleTriggerClick = () => {
-    if (!listRef.current) return;
+    const div = document.querySelector('[query-id="list"]') as HTMLDivElement;
+    if (!div) return;
 
     setQuery('');
 
-    const currentStatus = listRef.current.getAttribute("data-display");
-    listRef.current.setAttribute(
+    const currentStatus = div.getAttribute("data-display");
+    div.setAttribute(
       "data-display",
       currentStatus === "open" ? "closed" : "open",
     );
@@ -72,21 +76,25 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
 
   return (
     <div ref={componentRef} className="w-full">
-      <div
-        className={`flex ${labelPosition === "top" ? "flex-col" : ""} mt-2`}
-      >
-        <label className='flex place-items-center h-full w-full py-1 pr-2'>{label}</label>
+      <div className={`flex ${labelPosition === "top" ? "flex-col" : ""} mt-2`}>
+        <label
+          query-id="label"
+          className="flex place-items-center h-full w-full py-1 pr-2"
+        >
+          {label}
+        </label>
 
         <div className="relative">
-          <div ref={triggerRef} onClick={handleTriggerClick}>
+          <div ref={triggerRef} query-id="trigger-ref">
             <input
+              query-id='input'
               type="text"
               className="rounded-lg shadow-md px-2 py-1 outline-none border-none focus:ring-0"
               value={query}
               onFocus={(e) => e.target.select()}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <div>
+            <div query-id="trigger" onClick={handleTriggerClick}>
               <ChevronDown
                 height={18}
                 width={18}
@@ -97,8 +105,10 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
             </div>
           </div>
         </div>
+
         <div
           data-display="closed"
+          query-id="list"
           ref={listRef}
           className="rounded-b-lg data-[display=closed]:animate-dissappear data-[display=open]:animate-appear"
         >
@@ -108,6 +118,7 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
                 onClick={() => {
                   handleSelect(item);
                 }}
+                query-id={`option-${index}`}
                 className="cursor:pointer w-full bg-white text-black 
                   text-left px-2 py-2 hover:bg-slate-400 
                   transition-all duration-500 last:rounded-b-lg shadow-md"
@@ -118,6 +129,7 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
             );
           })}
         </div>
+
       </div>
     </div>
   );
