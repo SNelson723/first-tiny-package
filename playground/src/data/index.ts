@@ -6,22 +6,26 @@ export interface IData {
 export const data: IData[] = [
   {
     id: 1,
-    name: 'User 1',
+    name: "User",
   },
   {
     id: 2,
-    name: 'User 2',
+    name: "Tech",
   },
   {
     id: 3,
-    name: 'User 3',
+    name: "Techie",
   },
   {
     id: 4,
-    name: 'User 4',
+    name: "Assistant",
   },
   {
     id: 5,
-    name: 'User 5',
+    name: "Owner",
+  },
+  {
+    id: 6,
+    name: "Programmer",
   },
 ];
