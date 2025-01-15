@@ -1,6 +1,6 @@
 import "./global.css";
-import { Button } from './components';
+import { Button, Select } from './components';
+import { IconProps } from "./types";
+import { ChevronDown } from "./icons";
 
-console.log('Hello');
-
-export { Button };
+export { Button, Select, IconProps, ChevronDown };
