@@ -7,7 +7,6 @@
     "dist"
   ],
   "scripts": {
-    "lint": "tsc",
     "build": "tsup",
     "test": "vitest",
     "test:ui": "vitest --ui  --api 1338 --coverage"
@@ -27,6 +26,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
@@ -35,18 +35,27 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@types/testing-library__user-event": "^4.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
     "@vitest/coverage-istanbul": "^2.1.8",
     "@vitest/ui": "^2.1.8",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.14.0",
     "happy-dom": "^16.5.3",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.17",
     "tsup": "^8.3.5",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
     "vitest": "^2.1.8"
   },
   "dependencies": {
-    "-": "^0.0.1"
+    "-": "^0.0.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "eslint-plugin-typescript": "^0.14.0"
   }
 }

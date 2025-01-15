@@ -1,3 +1,4 @@
+import React from 'react';
 import Button  from './index';
 import { render, screen } from '@testing-library/react';
 import { getByQueryId } from '../../mocks/query';
