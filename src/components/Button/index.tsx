@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Button = () => {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('');
 
   return (
-    <div>
+    <div className='bg-slate-800 text-white'>
       <button 
       query-id="button"
       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md"
