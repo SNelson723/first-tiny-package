@@ -14,9 +14,14 @@ export default [
   {
     rules: {
       "no-console": "error",
-      "no-unused-vars": "error",
       "react/no-unknown-property": 0,
-      "react/react-in-jsx-scope": 0
+      "react/react-in-jsx-scope": 0,
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^_'
+        }
+      ]
     }
   }
 ];
