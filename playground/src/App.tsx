@@ -1,19 +1,21 @@
 import "./App.css";
 import { Button } from "first-tiny-package";
-import { Select } from "../../src";
+import { Select, Table } from "../../src";
 import "../../dist/index.css";
 import { data, IData } from "./data";
+import { tableData, tableHeaders } from "./data/tableData";
 
 function App() {
   return (
     <div>
       <Button />
+      <Table data={tableData} headers={tableHeaders} />
       <Select<IData>
         data={data}
         displayKey={"name"}
         label={"Select type"}
-        onSelect={(e: IData) => console.log(e)}
-      />
+        onSelect={(e: IData) => e}
+      /> 
     </div>
   );
 }

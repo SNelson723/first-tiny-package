@@ -89,7 +89,7 @@ const Select = <T,>({ data, displayKey, label, onSelect, labelPosition='top' }: 
             <input
               query-id='input'
               type="text"
-              className="rounded-lg shadow-md px-2 py-1 outline-none border-none focus:ring-0"
+              className="rounded-lg shadow-md px-2 py-1 outline-none border-none focus:ring-0 w-full"
               value={query}
               onFocus={(e) => e.target.select()}
               onChange={(e) => setQuery(e.target.value)}
