@@ -1,8 +1,8 @@
-import { act, render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Select from "./index";
 import { getByQueryId } from "../../mocks/query";
-import { data, IData } from "../../../playground/src/data";
+import { data } from "../../../playground/src/data";
 
 const Wrapper = () => {
   const fn = vi.fn();
@@ -83,7 +83,7 @@ describe("Select", () => {
     const option = getByQueryId('option-1');
     await userEvent.click(option);
 
-    const input = getByQueryId('input');
+    const input = getByQueryId('input') as HTMLInputElement;
     expect(input.value).toEqual(data[1].name);
   });
 
@@ -102,7 +102,6 @@ describe("Select", () => {
     await userEvent.click(trigger);
 
     const input = getByQueryId("input");
-
     await userEvent.type(input, 'tec');
 
     const list = getByQueryId('list');
