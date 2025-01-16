@@ -9,7 +9,7 @@ export const tableHeaders: ITableHeader[] = [
     width: 100,
     align: "left",
     formatter: null,
-    dataType: "string",
+    dataType: "number",
   },
   {
     column: "isActive",
