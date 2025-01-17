@@ -1,5 +1,4 @@
 import { ITableHeader } from "../../types";
-import { numberFormatter } from "./formatters";
 
 export interface TBodyProps<T> {
   data: T[];
@@ -20,9 +19,18 @@ const THead = <T,>({
   stripedEvenClass = "even:bg-slate-200",
   stripedOddClass = "odd:bg-white",
 }: TBodyProps<T>) => {
+
   const stripeStyle = striped
     ? `${stripedOddClass} ${stripedEvenClass}`
     : "";
+
+  const getFormatter = (header: ITableHeader, record: T) => {
+    if (header.formatter) {
+      return header.formatter(String(record[header.column as keyof T]))
+    } else {
+       return String(record[header.column as keyof T])}
+  };
+
   return (
     <tbody
       className="no-scrollbar"
@@ -49,9 +57,7 @@ const THead = <T,>({
                     maxWidth: `${header.width}px`,
                   }}
                 >
-                  {header.formatter
-                    ? numberFormatter(String(record[header.column as keyof T]))
-                    : String(record[header.column as keyof T])}
+                  {getFormatter(header, record)}
                 </td>
               ) : null;
             })}
