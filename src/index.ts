@@ -6,6 +6,13 @@ import type { ITableHeader } from "./types";
 import { sort } from "./utils/sort";
 import { numberFormatter } from "./components/Table/formatters";
 import { useClickOUtside } from "./hooks/useClickOutside";
+import {
+  Toast,
+  ToastContainer,
+  ToastContext,
+  ToastProvider,
+  useToast,
+} from "./components/toasts";
 
 export {
   Button,
@@ -17,4 +24,9 @@ export {
   sort,
   numberFormatter,
   useClickOUtside,
+  useToast,
+  Toast,
+  ToastContext,
+  ToastProvider,
+  ToastContainer,
 };
