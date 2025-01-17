@@ -34,6 +34,7 @@
     "@types/node": "^22.10.6",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
+    "@types/testing-library__jest-dom": "^5.14.9",
     "@types/testing-library__user-event": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",

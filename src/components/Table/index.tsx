@@ -63,7 +63,7 @@ const Table = <T,>({
       } else {
         setSelectedColumn(header);
       }
-      
+
       const sortedData = sort(data, header.column as keyof T, sortDirection, header);
       setTableData(sortedData);
     };
@@ -76,7 +76,7 @@ const Table = <T,>({
 
   return (
     <div>
-      <table>
+      <table query-id="table">
         <THead
           headers={tableHeaders}
           backgroundColorClass={backgroundColorClass}

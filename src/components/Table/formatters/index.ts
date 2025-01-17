@@ -12,7 +12,7 @@ export const numberFormatter = (input: string | number | boolean): string => {
   const left = input.substring(0, pos);
   let right = input.substring(pos + 1);
 
-  if (right.length === 0) {
+  if (right.length === 1) {
     right = right + '0';
   }
 
