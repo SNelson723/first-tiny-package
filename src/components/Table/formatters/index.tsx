@@ -19,7 +19,7 @@ export const numberFormatter = (input: string | number | boolean): string => {
   return '$' + left + '.' + right;
 };
 
-export const imageFormatter = (input: string): JSX.Element => {
+export const imageFormatter = (input: string) => {
   return (
     <img src={input} alt="img" style={{width: '20px', height: '20px'}} />
   );
