@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest",
-    "test:ui": "vitest --ui  --api 1338 --coverage"
+    "test:ui": "vitest --ui  --api 1338 --coverage",
+    "updateVersion": "num version patch"
   },
   "keywords": [],
   "author": "S4r3n6",

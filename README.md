@@ -8,12 +8,15 @@
 
 
 
-This is my first npm package
-
+This is a tiny TypeScript package with the following components:
 ## Component in Library
 [Select](#select)
-
 [Table](#table)
+
+## Installation
+```js
+  npm install first-tiny-package
+```
 
 ## Select
 | Prop | type | required | default value |
@@ -23,6 +26,15 @@ This is my first npm package
 | label | string | ✅ | empty |
 | onSelect | function | | empty |
 | labelPosition | 'top', 'left' | | 'top' |
+
+```js
+  <Select<IData>
+    data={data}
+    displayKey={"name"}
+    label={"Select type"}
+    onSelect={(e: IData) => e}
+  /> 
+```
 
 ## Table 
 | Prop | type | required | default value |
@@ -41,3 +53,7 @@ This is my first npm package
 | striped | boolean | | true |
 | stripedEvenClass | string | | empty |
 | stripedOddClass | string | | empty |
+
+```js
+<Table data={tableData} headers={tableHeaders} />
+```
