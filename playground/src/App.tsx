@@ -27,14 +27,25 @@ function App() {
 
   return (
     <div>
-      <div className="flex">
-        <button onClick={handleError}>Error</button>
-        <button onClick={handleSuccess}>Success</button>
-        <button onClick={handleInfo}>Info</button>
-        <button onClick={handleWarning}>Warning</button>
-      </div>
       <Button />
       <Table data={tableData} headers={tableHeaders} />
+      <div
+        className="flex w-full justify-center gap-4"
+        style={{ marginTop: "10px" }}
+      >
+        <button className="toast-error px-4 py-2 rounded-lg" onClick={handleError}>
+          Error
+        </button>
+        <button className="toast-success px-4 py-2 rounded-lg" onClick={handleSuccess}>
+          Success
+        </button>
+        <button className="toast-info px-4 py-2 rounded-lg" onClick={handleInfo}>
+          Info
+        </button>
+        <button className="toast-warning px-4 py-2 rounded-lg" onClick={handleWarning}>
+          Warning
+        </button>
+      </div>
       <Select<IData>
         data={data}
         displayKey={"name"}

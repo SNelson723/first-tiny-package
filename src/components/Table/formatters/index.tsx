@@ -1,4 +1,4 @@
-export type FormatterType = typeof numberFormatter | null;
+export type FormatterType = typeof numberFormatter | typeof imageFormatter | null;
 
 export const numberFormatter = (input: string | number | boolean): string => {
   if (typeof input === 'undefined' || input === null) return input;
@@ -17,4 +17,10 @@ export const numberFormatter = (input: string | number | boolean): string => {
   }
 
   return '$' + left + '.' + right;
+};
+
+export const imageFormatter = (input: string): JSX.Element => {
+  return (
+    <img src={input} alt="img" style={{width: '20px', height: '20px'}} />
+  );
 };

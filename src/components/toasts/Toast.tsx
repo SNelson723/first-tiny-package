@@ -1,13 +1,15 @@
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "./Icons";
 import { ToastProps } from "./interfaces";
 import { useRef, useEffect } from "react";
+import { ToastPosition } from "./types";
 
 interface ToastComponentProps {
   toast: ToastProps;
   onClick: () => void;
+  position?: ToastPosition;
 }
 
-const Toast = ({ toast, onClick }: ToastComponentProps) => {
+const Toast = ({ toast, onClick, position }: ToastComponentProps) => {
   const progressRef = useRef<HTMLDivElement>(null);
   const { message, type, options } = toast;
   const { useIcon = true, autoClose, duration } = options || {};
@@ -47,12 +49,25 @@ const Toast = ({ toast, onClick }: ToastComponentProps) => {
     }
   };
 
+  const getAnimation = () => {
+    switch (position) {
+      case "top-right":
+        return "animate-slideInFromRight";
+      case "top-left":
+        return "animate-slideInFromLeft";
+      case "bottom-right":
+        return "animate-slideInFromRight";
+      case "bottom-left":
+        return "animate-slideInFromLeft";
+    }
+  };
+
   return (
     <div
       query-id={toast.id}
-      className="flex flex-col justify-between items-center 
+      className={`flex flex-col justify-between items-center 
       mb-2 border rounded-lg cursor-pointer min-h-[34px] 
-      shadow-md animate-slideInFromRight transition-all duration-500"
+      shadow-md ${getAnimation()} transition-all duration-500`}
       onClick={onClick}
     >
       <div className="flex w-full ">

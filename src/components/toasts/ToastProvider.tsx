@@ -9,6 +9,8 @@ export const ToastProvider = ({
   children,
   autoClose,
   duration,
+  position = "top-left",
+  recentOnTop = false
 }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
 
@@ -23,7 +25,12 @@ export const ToastProvider = ({
     }
 
     setToasts((prev) => {
-      return [...prev, { id, type, message, options }];
+      if (recentOnTop) {
+        return [{ id, type, message, options }, ...prev];
+
+      } else {
+        return [...prev, { id, type, message, options }];
+      }
     });
 
     if (autoClose) {
@@ -42,8 +49,24 @@ export const ToastProvider = ({
   const removeToast = (id: string) => {
     const div = getByQueryId(id);
     if (div) {
-      div.classList.remove("animate-slideInFromRight");
-      div.classList.add("animate-slideOutToRight");
+      switch (position) {
+        case "top-right":
+          div.classList.remove("animate-slideInFromRight");
+          div.classList.add("animate-slideOutToRight");
+          break;
+        case "top-left":
+          div.classList.remove("animate-slideInFromLeft");
+          div.classList.add("animate-slideOutToLeft");
+          break;
+        case "bottom-right":
+          div.classList.remove("animate-slideInFromRight");
+          div.classList.add("animate-slideOutToRight");
+          break;
+        case "bottom-left":
+          div.classList.remove("animate-slideInFromLeft");
+          div.classList.add("animate-slideOutToLeft");
+          break;
+      }
     }
 
     setTimeout(() => {
@@ -54,7 +77,11 @@ export const ToastProvider = ({
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      <ToastContainer toasts={toasts} removeToast={removeToast} />
+      <ToastContainer
+        toasts={toasts}
+        removeToast={removeToast}
+        position={position}
+      />
     </ToastContext.Provider>
   );
 };
