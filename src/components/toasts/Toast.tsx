@@ -65,8 +65,8 @@ const Toast = ({ toast, onClick, position }: ToastComponentProps) => {
   return (
     <div
       query-id={toast.id}
-      className={`flex flex-col justify-between items-center 
-      mb-2 border rounded-lg cursor-pointer min-h-[34px] 
+      className={`flex flex-col justify-between items-center
+      mb-2 border rounded-lg cursor-pointer min-h-[34px]
       shadow-md ${getAnimation()} transition-all duration-500`}
       onClick={onClick}
     >
